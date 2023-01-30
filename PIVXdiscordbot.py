@@ -28,7 +28,7 @@ async def forked(ctx):
 @client.command(aliases=['TOOLBOX'])
 async def toolbox(ctx):
     try:
-        msg = (configParser.get('messages', 'snapshotmsg'))
+        msg = (configParser.get('messages', 'toolboxmsg'))
         await ctx.send(f'✅  ' + msg)
     except:
         await ctx.send('❌ ERROR')
