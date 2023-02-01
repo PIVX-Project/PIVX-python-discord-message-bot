@@ -144,7 +144,6 @@ async def price(ctx):
         responsebtc = requests.get("https://api.coingecko.com/api/v3/simple/price?ids=pivx&vs_currencies=btc")
         btcPrice = (responsebtc.json()["pivx"]["btc"])
         await ctx.send(':coin: PIVX currect price is:\n   {:.8f}'.format(float(btcPrice)) + ' BTC \n   {:.3f}'.format(float(usdPrice)) + ' USD')
-        #await ctx.send(f':coin: PIVX currect price is:\n ' + usdPrice + ' USD \n ' + btcPrice2 + ' BTC')
     except:
         await ctx.send('❌ ERROR')
 
