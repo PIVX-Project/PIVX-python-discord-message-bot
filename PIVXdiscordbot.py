@@ -5,15 +5,10 @@ import requests
 import datetime
 from datetime import datetime
 
-
 configParser = configparser.RawConfigParser()   
 configParser.readfp(open(r'messages.ini'))
 client = commands.Bot(command_prefix='/', intents=discord.Intents.all())
-
-
-
 client.remove_command("help")
-
 
 @client.event
 async def on_ready():
@@ -36,8 +31,6 @@ async def pivxaunty(ctx):
     except:
         await ctx.send('❌ ERROR')
 
-
-
 @client.command(aliases=['HELP'])
 async def help(ctx):
     try:
@@ -45,7 +38,6 @@ async def help(ctx):
         await ctx.send(f'✅  ' + msg)
     except:
         await ctx.send('❌ ERROR')
-
 
 @client.command(aliases=['SNAPSHOT'])
 async def snapshot(ctx):
@@ -103,6 +95,14 @@ async def mpw(ctx):
     except:
         await ctx.send('❌ ERROR')
 
+@client.command(aliases=['LABS'])
+async def labs(ctx):
+    try:
+        msg = (configParser.get('messages', 'pivxlabsmsg'))
+        await ctx.send(f'✅  ' + msg)
+    except:
+        await ctx.send('❌ ERROR')
+
 @client.command(aliases=['VERSION'])
 async def version(ctx):
     try:
@@ -135,7 +135,6 @@ async def version(ctx):
     except:
         await ctx.send('❌ ERROR')
 
-
 @client.command(aliases=['PRICE'])
 async def price(ctx):
     try:
@@ -146,7 +145,6 @@ async def price(ctx):
         await ctx.send(':coin: PIVX currect price is:\n   {:.8f}'.format(float(btcPrice)) + ' BTC \n   {:.3f}'.format(float(usdPrice)) + ' USD')
     except:
         await ctx.send('❌ ERROR')
-
 
 @client.command(aliases=['DMTEST'])
 async def dm(ctx):
